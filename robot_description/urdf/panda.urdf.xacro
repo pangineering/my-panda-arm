@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+
+  <xacro:include filename="$(find robot_description)/urdf/franka_robot.xacro" />
+  <!-- <link name="world" />
+  <xacro:panda_arm xyz="0 0 0" rpy="0 0 0" connected_to="world" /> -->
+  <xacro:arg name="arm_id" default="panda" />
+
+  <xacro:franka_robot arm_id="$(arg arm_id)"
+    joint_limits="${xacro.load_yaml('$(find robot_description)/urdf/joint_limits.yaml')}">
+  </xacro:franka_robot>
+
+</robot>
